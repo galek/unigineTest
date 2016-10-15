@@ -3,9 +3,12 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
+
+//прописываем пути до библиотек
 app.use('/jquery', express.static(__dirname + '/../node_modules/jquery/dist'));
 app.use('/nipplejs', express.static(__dirname + '/../node_modules/nipplejs/dist'));
 
+//роутинг 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
@@ -14,6 +17,7 @@ io.on('connection', function(socket){
   console.log('Joystick connected!');
   
   socket.on('joystick event', function(data){
+    data = JSON.parse(data);
     // for (var i = 0; i < data[0].length; i++) {
     //   data[0][i]=0;
     // }
