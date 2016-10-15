@@ -1,35 +1,255 @@
 <!doctype html>
 <html>
   <head>
-    <title>Socket.IO chat</title>
-    <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { font: 13px Helvetica, Arial; }
-      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
-      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
-      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
-      #messages { list-style-type: none; margin: 0; padding: 0; }
-      #messages li { padding: 5px 10px; }
-      #messages li:nth-child(odd) { background: #eee; }
-    </style>
+    <title>Virtual GamePad</title>
+      <style>
+          html, body {
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              padding: 0;
+              margin: 0;
+          }
+
+          #left {
+              position: absolute;
+              left: 0;
+              top: 0;
+              height: 100%;
+              width: 40%;
+              background: rgba(0, 255, 0, 0.1);
+          }
+
+          #button1-right {
+              position: absolute;
+              left: 40%;
+              top: 0;
+              height: 100%;
+              width: 30%;
+              text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.3);
+              background: rgba(0, 0, 0, 0.1);
+          }
+
+          #button2-right {
+              position: absolute;
+              right: 0;
+              top: 0;
+              height: 100%;
+              width: 30%;
+              background: rgba(0, 0, 255, 0.1);
+          }
+
+           #nipple_1_1>.front, #nipple_2_2>.front{
+            display: none !important;
+
+            }
+
+          #nipple_1_1>.back, #nipple_2_2>.back {
+            opacity: 1 !important;
+                        /*Тень*/
+            -webkit-box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.5);
+            -moz-box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 6px 3px rgba(0, 0, 0, 0.5);
+
+            /*background-color: rgba(200, 0, 0, 0.7) !important;*/
+
+
+            /*Градиент*/
+            background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2))!important;
+            background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2))!important;
+            background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2))!important;
+            background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2))!important;
+            background-image: linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2))!important;
+
+          }
+
+          #nipple_1_1>.back:active, #nipple_2_2>.back:active {
+            /*Тень*/
+            -webkit-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
+            -moz-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
+            
+            /*background-color: rgba(150, 0, 0, 0.7) !important;*/
+
+            /*Градиент*/
+            background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4))!important;
+            background-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4))!important;
+            background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4))!important;
+            background-image: -ms-linear-gradient(bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4))!important;
+            background-image: linear-gradient(bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4))!important;
+          }
+
+
+
+
+/*          .nipple div {
+              background-color: white;
+          }
+
+          .nipple.active div {
+              background-color: red;
+          }*/
+      </style>
   </head>
   <script src="/socket.io/socket.io.js"></script>
   <script src="/jquery/jquery.js"></script>
+  <script src="/nipplejs/nipplejs.js"></script>
+
+
   <body>
-    <ul id="messages"></ul>
-    <form action="">
-      <input id="m" autocomplete="off" /><button submit>Send</button>
-    </form>
+    <div id="left"></div>
+    <div id="right">
+      <div id="button1-right"></div>
+      <div id="button2-right"></div>
+    </div>
+    
   </body>
   <script>
-    var socket = io();
-    $('form').submit(function(){
-      socket.emit('chat message', $('#m').val());
-      $('#m').val('');
-      return false;
-    });
-    socket.on('chat message', function(msg){
-      $('#messages').append($('<li>').text(msg));
-    });
+   var socket = io();
+
+
+    var optionsLJ = {
+        zone: document.getElementById('left'),
+        mode: 'static',
+        color: 'orange',
+        size: 120,
+        position: { left: '50%', top: '60%' }
+        // multitouch: false
+    };
+
+    var joystickL = nipplejs.create(optionsLJ);
+
+
+    var optionsRB1 ={
+        zone: document.getElementById('button1-right'),
+        mode: 'static',
+        position: { left: '50%', top: '70%' },
+        color: 'rgba(200, 0, 0, 0.7)',
+        size: 80,
+        //dataOnly: true, 
+        //fadeTime:3000,  
+        restOpacity: 1
+    };
+
+    var optionsRB2 ={
+        zone: document.getElementById('button2-right'),
+        mode: 'static',
+        position: { left: '50%', top: '70%' },
+        color: 'rgba(0, 0, 200, 0.7)',
+        size: 80,
+        //dataOnly: true, 
+        //fadeTime:3000,  
+        restOpacity: 1
+    };
+
+    //data for server
+    var jdata =[[0,0,0,0],[0,0], 0];
+
+    var buttonR1 = nipplejs.create(optionsRB1);
+    var buttonR2 = nipplejs.create(optionsRB2);
+
+    joystickL.on('start end', 
+      function (evt, data) {
+        jdata[0][0] = 0; 
+        jdata[0][1] = 0; 
+        jdata[0][2] = 0; 
+        jdata[0][3] = 0; 
+         
+
+      }).on('move',
+        function (evt, data) {
+
+          jdata[2] = (data.distance * 100)/(data.instance.options.size/2);
+
+          if (data.angle.degree >=0 && data.angle.degree<=90){
+            // for (var i = 0; i < jdata[0].length; i++) {
+            //   jdata[0][i]=0;
+            // }
+            jdata[0][0] = 0; 
+            jdata[0][1] = 0; 
+            jdata[0][2] = 0; 
+            jdata[0][3] = 1;  
+          }
+
+          else if (data.angle.degree>90 && data.angle.degree<180){ 
+            jdata[0][0] = 0; 
+            jdata[0][1] = 0;
+            jdata[0][2] = 1; 
+            jdata[0][3] = 0;  
+          }
+
+          else if (data.angle.degree >180 && data.angle.degree<=270){ 
+            jdata[0][0] = 0; 
+            jdata[0][1] = 1; 
+            jdata[0][2] = 0; 
+            jdata[0][3] = 0; 
+          }
+
+          else if (data.angle.degree >270 && data.angle.degree<=360){
+            jdata[0][0] = 1; 
+            jdata[0][1] = 0; 
+            jdata[0][2] = 0; 
+            jdata[0][3] = 0;  
+
+          }
+          socket.emit('joystick event', jdata);
+          // socket.destroy();
+          
+        });
+
+
+    buttonR1.on('start', 
+      function (evt, data) {
+        jdata[1][0] = 1; 
+        console.log(jdata[1]);
+        socket.emit('joystick event', jdata);
+      }).on('end', 
+      function (evt, data) {
+        jdata[1][0] = 0; 
+        console.log(jdata[1]);
+        socket.emit('joystick event', jdata);
+      });
+
+
+    buttonR2.on('start', 
+      function (evt, data) {
+        jdata[1][1] = 1; 
+        console.log(jdata[1]);
+        socket.emit('joystick event', jdata);
+      }).on('end', 
+      function (evt, data) {
+        jdata[1][1] = 0; 
+        console.log(jdata[1]);
+        socket.emit('joystick event', jdata);
+      });
+
+
+
+
+    // console.log("joystickL");
+    // console.log(joystickL);
+    // console.log("joystickR");
+    // console.log(buttonR1);
+    // console.log(buttonR2);
+    // console.log(buttonR1.id);
+
+
+    // joystickR.el = document.createElement('div');
+    // joystickR.back = document.createElement('div');
+    // joystickR.front = document.createElement('div');
+
+    // joystickR.el.className = 'nipple collection_2312312312';
+    // joystickR.back.className = 'back2222';
+    // joystickR.front.className = 'front2222';
+    
+
+    // console.log(joystickR);
+
+
+
   </script>
 </html>
+
+
