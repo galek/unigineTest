@@ -1,0 +1,126 @@
+  html, body {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+
+  /*min 424x182*/
+  /*max 740*/
+  .gamepad {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    min-width: 180px;
+    max-width: 700px;
+    min-height: 185px;
+    top: 50%;
+    height: 50%;
+    border: 10px solid black;
+     box-sizing: border-box;
+  }
+
+ //  @media all and (orientation:landscape) {
+  
+ //  } 
+
+  .left {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background: rgba(0, 255, 0, 0.1);
+    /*border: 1px solid red;*/
+  }
+
+  #joystick-left {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    /*border: 1px solid green;*/
+  }
+
+  .right {
+    position: absolute;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 0, 255, 0.1);
+    /*border: 1px solid blue;*/
+  }
+
+  #button1-right {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    /*border: 1px solid yellow;*/
+  }
+
+  #button2-right {
+    position: absolute;
+    left: 50%;
+    height: 100%;
+    width: 50%;
+    /*border: 1px solid black;*/
+  }
+
+
+  #joystick-left .front {
+    opacity: 0.8 !important;
+     /*Тень*/
+    -webkit-box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.5);
+
+    /*Градиент*/
+    background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)) !important;
+    background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)) !important;
+    background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)) !important;
+    background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)) !important;
+    background-image: linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)) !important;
+
+  }
+
+  #joystick-left .back {
+  /*        opacity: 1 !important; 
+    background: none !important;
+    border: 1px dashed orange;*/
+  }
+
+  #button1-right .front, #button2-right .front{
+    display: none !important;
+  }
+
+  #button1-right .back, #button2-right .back {
+    opacity: 1 !important;
+    /*Тень*/
+    -webkit-box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.5);
+
+    /*Градиент*/
+    background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)) !important;
+    background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)) !important;
+    background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)) !important;
+    background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)) !important;
+    background-image: linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)) !important;
+  }
+
+
+ #button1-right .back.active, #button2-right .back.active{
+    /*Тень*/
+    -webkit-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
+   
+    /*Градиент*/
+    background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)) !important;
+    background-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)) !important;
+    background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)) !important;
+    background-image: -ms-linear-gradient(bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)) !important;
+    background-image: linear-gradient(bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)) !important;
+  }

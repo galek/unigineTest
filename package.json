@@ -1,0 +1,37 @@
+{
+  "name": "unigine-test",
+  "version": "0.0.1",
+  "description": "Test-tasks for Unigine company",
+  "main": "index.html",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "express": "^4.14.0",
+    "jquery": "^3.1.1",
+    "node-sass": "^3.10.1",
+    "nipplejs": "^0.6.6",
+    "socket.io": "^1.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch-css": "node-sass -wr task2/scss/*.scss -o task2/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leonid-ilin/unigineTest.git"
+  },
+  "keywords": [
+    "unigine",
+    "test",
+    "tasks",
+    "joystick"
+  ],
+  "author": "Leonid Ilin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leonid-ilin/unigineTest/issues"
+  },
+  "homepage": "https://github.com/leonid-ilin/unigineTest#readme"
+}

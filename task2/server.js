@@ -7,6 +7,7 @@ var io = require('socket.io')(http);
 //прописываем пути до библиотек
 app.use('/jquery', express.static(__dirname + '/../node_modules/jquery/dist'));
 app.use('/nipplejs', express.static(__dirname + '/../node_modules/nipplejs/dist'));
+app.use(express.static(__dirname));
 
 //роутинг 
 app.get('/', function(req, res){
