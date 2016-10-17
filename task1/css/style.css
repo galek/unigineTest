@@ -1,0 +1,86 @@
+@charset "UTF-8";
+html, body {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+.page-wrapper {
+  min-width: 1024px;
+  /* Ширина слоя */
+  margin: 0 auto;
+  /* Выравнивнить весь блок по центру */
+  background: #f0f0f0;
+  /* Цвет фона левой колонки */
+  border: 1px solid red; }
+
+.main-page {
+  overflow: hidden;
+  /* Отменяем действие float */
+  width: 100%;
+  border: 1px solid green; }
+
+.site-header {
+  background: #27282D;
+  /* Цвет фона */
+  font-size: 24px;
+  /* Размер шрифта */
+  border: 1px solid orange; }
+  .site-header #user, .site-header #settings, .site-header #logo {
+    background: #393B42;
+    display: inline-block; }
+  .site-header #user {
+    width: 30%; }
+  .site-header #settings {
+    width: 15%; }
+  .site-header #logo {
+    width: 15%; }
+
+#content {
+  width: 80%;
+  height: 100%;
+  margin-left: 20%;
+  /* Отступ слева */
+  background: #ECECEC;
+  /* Цвет фона */
+  border: 1px solid yellow; }
+
+#left-menu {
+  width: 20%;
+  height: 100%;
+  float: left;
+  background: #28292E;
+  border: 1px solid blue; }
+  #left-menu ul#menu-list {
+    background: #393B42;
+    margin: 0;
+    padding: 0; }
+    #left-menu ul#menu-list a {
+      display: block;
+      text-decoration: none; }
+    #left-menu ul#menu-list ul {
+      padding: 0;
+      list-style-type: none; }
+    #left-menu ul#menu-list > li {
+      margin-top: 1px; }
+    #left-menu ul#menu-list > li > a {
+      background: #A0BD7D;
+      color: #393B42;
+      padding: 0.5em;
+      list-style-type: none;
+      text-align: center; }
+    #left-menu ul#menu-list > li > a:hover {
+      background: #ECECEC;
+      border-left: 5px #A0BD7D solid;
+      padding-left: 15px; }
+    #left-menu ul#menu-list li > ul {
+      padding-left: 30%; }
+    #left-menu ul#menu-list li > ul > li:hover {
+      background: #586B4C; }
+    #left-menu ul#menu-list > li > ul > li > a {
+      color: #D4D6D2; }
+    #left-menu ul#menu-list > li > ul > li > a:before {
+      content: "\2022\a0\a0"; }

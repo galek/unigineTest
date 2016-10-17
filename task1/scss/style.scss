@@ -1,0 +1,181 @@
+html, body {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.page-wrapper {
+  min-width: 1024px; /* Ширина слоя */
+  margin: 0 auto; /* Выравнивнить весь блок по центру */
+  background: #f0f0f0; /* Цвет фона левой колонки */
+
+  // тестовая рамка
+  border: 1px solid red;
+}
+
+.main-page {
+    overflow: hidden; /* Отменяем действие float */
+    width: 100%;
+
+    // тестовая рамка
+    border: 1px solid green;
+}
+
+.site-header {
+    background: #27282D; /* Цвет фона */
+    font-size: 24px; /* Размер шрифта */
+
+    // тестовая рамка
+    border: 1px solid orange;
+
+    #user, #settings, #logo {
+       background: #393B42;
+       display: inline-block;
+    }
+
+    #user {
+      width: 30%;
+    }
+
+    #settings {
+      width: 15%;
+    }
+
+    #logo {
+      width: 15%;
+    }
+
+}
+
+// #left-menu {
+//     ul {
+//       display: block;
+//       height: 30px;
+//       background: #A0BD7D;
+//       height: 5%;
+//       border-bottom: 1px solid black; 
+//       // list-style: none; /* Убираем маркеры */
+//       // padding: 0; /* Убираем отступы */
+//     }
+// }
+
+#content {
+    width: 80%;
+    height: 100%;
+    margin-left: 20%; /* Отступ слева */
+    background: #ECECEC; /* Цвет фона */
+
+
+    
+    // тестовая рамка
+    border: 1px solid yellow;
+
+}
+
+
+#left-menu {
+  width: 20%; 
+  height: 100%;
+  float: left;
+  background: #28292E;
+  // тестовая рамка
+  border: 1px solid blue;
+
+  //всё меню
+  ul#menu-list {
+    background: #393B42;
+    margin: 0;
+    padding: 0;
+
+    //для всех ссылок ниже 
+    a {
+      display: block;
+      text-decoration: none;  
+    }
+
+    //для всех ul в меню
+    ul { 
+      padding: 0;
+      list-style-type: none;
+    }
+    
+    //каждый элемент главный список
+    &>li {
+      margin-top: 1px;
+
+    }
+
+    //элемент ссылка главная 
+    &>li>a {
+      background: #A0BD7D;
+      color: #393B42;  
+      padding: 0.5em;
+      list-style-type:none;
+      text-align: center;
+    }
+
+    //элемент ссылка главная - наведение
+    &>li>a:hover {
+      background: #ECECEC;
+      border-left: 5px #A0BD7D solid;
+      padding-left: 15px;
+    }
+
+    
+    //каждый элемент UL второго уровеня списка
+    li>ul {
+      padding-left: 30%;    
+
+    }
+    
+    //каждый элемент LI второго уровеня списка
+    li>ul>li {
+    }    
+
+    //каждый элемент LI второго уровеня списка при наведении
+    li>ul>li:hover {
+      background: #586B4C;
+    }
+    
+
+    //элемент ссылка второго уровня 
+    &>li>ul>li>a {
+      color: #D4D6D2;
+    }
+    //элемент ссылка второго уровня при наведении
+    // , li ul .current a
+     &>li>ul>li>a:before {
+      content: "\2022\a0\a0";
+
+    }
+
+
+  }
+
+
+  // &>ul {
+  //     list-style: none;
+  //     padding: 0;
+  //     margin: 50px, 0, 50px, 0;
+  // }
+  // &>ul>li>a {
+  //     text-decoration: none;
+  //     display: block;
+  //     padding: 3px 5px;
+  //     color: #27292D;
+  //     background: #A0BD7D;
+  //     border-bottom: 1px solid black; 
+  // }
+  // ul > li > ul > li > a {
+  //     background: #393B42;
+  //     color: #D1D1D1;
+  // }
+
+  // ul > li > ul > li:first-child > a {
+  //     border-top: none;
+  // }
+}

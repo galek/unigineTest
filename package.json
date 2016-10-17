@@ -16,7 +16,8 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch-css": "node-sass -wr task2/scss/*.scss -o task2/"
+    "watch-css1": "node-sass -wr ./task1/scss/ -o ./task1/css/",
+    "watch-css2": "node-sass -wr ./task2/scss/ -o ./task2/"
   },
   "repository": {
     "type": "git",
