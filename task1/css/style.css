@@ -1,4 +1,61 @@
 @charset "UTF-8";
+@font-face {
+  font-family: "Qotho W01 Thin Condensed";
+  src: url("../fonts/Qotho-thin/Qotho.eot");
+  /* IE9*/
+  src: url("../fonts/Qotho-thin/Qotho.eot?#iefix") format("embedded-opentype"), url("../fonts/Qotho-thin/Qotho.woff2") format("woff2"), url("../fonts/Qotho-thin/Qotho.woff") format("woff"), url("../fonts/Qotho-thin/Qotho.ttf") format("truetype"), url("../fonts/Qotho-thin/Qotho.svg#Qotho W01 Medium Condensed") format("svg");
+  /* iOS 4.1- */ }
+
+@font-face {
+  font-family: "Qotho W01 Medium Condensed";
+  src: url("../fonts/Qotho-medium/Qotho.eot");
+  /* IE9*/
+  src: url("../fonts/Qotho-medium/Qotho.eot?#iefix") format("embedded-opentype"), url("../fonts/Qotho-medium/Qotho.woff2") format("woff2"), url("../fonts/Qotho-medium/Qotho.woff") format("woff"), url("../fonts/Qotho-medium/Qotho.ttf") format("truetype"), url("../fonts/Qotho-medium/Qotho.svg#Qotho W01 Medium Condensed") format("svg");
+  /* iOS 4.1- */ }
+
+@font-face {
+  font-family: 'unigine';
+  src: url("../fonts/icons/unigine.eot");
+  src: url("../fonts/icons/unigine.eot#iefix") format("embedded-opentype"), url("../fonts/icons/unigine.woff") format("woff"), url("../fonts/icons/unigine.ttf") format("truetype"), url("../fonts/icons/unigine.svg#unigine") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "unigine";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */ }
+
+.icon-settings:before {
+  content: '\e801'; }
+
+.icon-no-photo:before {
+  content: '\e802'; }
+
+.icon-play-circled:before {
+  content: '\f144'; }
+
 html, body {
   top: 0;
   left: 0;
@@ -6,7 +63,13 @@ html, body {
   bottom: 0;
   padding: 0;
   margin: 0;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  font-family: "Qotho W01 Medium Condensed", "Arial", "sans-serif" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale; }
 
 .page-wrapper {
   min-width: 1024px;
@@ -14,7 +77,7 @@ html, body {
   margin: 0 auto;
   /* Выравнивнить весь блок по центру */
   background: #f0f0f0;
-  /* Цвет фона левой колонки */
+  /* Цвет фона */
   border: 1px solid red; }
 
 .main-page {
@@ -26,31 +89,108 @@ html, body {
 .site-header {
   background: #27282D;
   /* Цвет фона */
-  font-size: 24px;
+  font-size: 1rem;
   /* Размер шрифта */
+  padding-top: 10px;
   border: 1px solid orange; }
-  .site-header #user, .site-header #settings, .site-header #logo {
+  .site-header #user, .site-header #settings {
     background: #393B42;
-    display: inline-block; }
+    display: inline-block;
+    padding: 20px 0 20px 0;
+    text-align: center; }
+    .site-header #user a, .site-header #settings a {
+      display: block;
+      text-decoration: none;
+      color: #D1D1D1; }
   .site-header #user {
-    width: 30%; }
+    width: 23%; }
   .site-header #settings {
     width: 15%; }
   .site-header #logo {
-    width: 15%; }
+    display: inline-block;
+    width: 15%;
+    float: right;
+    padding: 1% 10% 0 0; }
+    .site-header #logo img {
+      height: 10%;
+      width: 80%; }
 
 #content {
-  width: 80%;
-  height: 100%;
-  margin-left: 20%;
+  width: 83%;
+  margin-left: 17%;
   /* Отступ слева */
   background: #ECECEC;
-  /* Цвет фона */
-  border: 1px solid yellow; }
+  /* Цвет фона содержимого*/
+  padding: 3%;
+  border: 1px solid yellow;
+  /* Начало кирпичной-плиточной кладки*/
+  /* Элементы в виде плиток с содержанием */
+  /* Стили картинок, видое и фреймов внутри адаптивных плиток */
+  /* Стили ссылок внутри плиток */
+  /* Стили ссылок при наведении */
+  /* Медиа-запросы для различных размеров адаптивного макета */ }
+  #content .masonry {
+    margin: 1.5em 0;
+    padding: 0;
+    column-gap: 1.5em;
+    /* Общее расстояние между колонками */
+    font-size: .85em;
+    -moz-column-gap: 1.5em;
+    /* Расстояние между колонками для Firefox */
+    -webkit-column-gap: 1.5em;
+    /* Расстояние между колонками  для Safari, Chrome и iOS */ }
+  #content .item {
+    display: inline-block;
+    background: #fff;
+    padding: 1em;
+    margin: 0 0 1.5em;
+    width: 100%;
+    box-sizing: border-box;
+    /* Изменения алгоритма расчета ширины и высоты элемента.*/
+    -moz-box-sizing: border-box;
+    /* Для Firefox */
+    -webkit-box-sizing: border-box;
+    /* Для Safari, Chrome, iOS иAndroid */
+    box-shadow: 2px 2px 4px 0 #ccc;
+    /* Внешняя тень плиток */ }
+  #content img, #content iframe {
+    max-width: 100%;
+    height: auto;
+    display: block; }
+  #content .item a {
+    text-decoration: none;
+    color: #359CC6;
+    margin: 0 10px; }
+  #content .item a:hover {
+    color: #E88F00;
+    border-bottom: 1px dotted #9F1D35; }
+  @media only screen and (min-width: 400px) {
+    #content .masonry {
+      -moz-column-count: 2;
+      -webkit-column-count: 2;
+      column-count: 2; } }
+  @media only screen and (min-width: 700px) {
+    #content .masonry {
+      -moz-column-count: 3;
+      -webkit-column-count: 3;
+      column-count: 3; } }
+  @media only screen and (min-width: 900px) {
+    #content .masonry {
+      -moz-column-count: 4;
+      -webkit-column-count: 4;
+      column-count: 4; } }
+  @media only screen and (min-width: 1100px) {
+    #content .masonry {
+      -moz-column-count: 5;
+      -webkit-column-count: 5;
+      column-count: 5; } }
+
+#left-menu, #content {
+  margin-bottom: -10000px;
+  padding-bottom: 10000px; }
 
 #left-menu {
-  width: 20%;
-  height: 100%;
+  width: 17%;
   float: left;
   background: #28292E;
   border: 1px solid blue; }
@@ -61,15 +201,17 @@ html, body {
     #left-menu ul#menu-list a {
       display: block;
       text-decoration: none; }
-    #left-menu ul#menu-list ul {
+    #left-menu ul#menu-list ul, #left-menu ul#menu-list li {
       padding: 0;
       list-style-type: none; }
     #left-menu ul#menu-list > li {
-      margin-top: 1px; }
+      font-size: 1.1rem;
+      /* Размер шрифта */
+      margin-top: 1px;
+      background: #A0BD7D; }
     #left-menu ul#menu-list > li > a {
-      background: #A0BD7D;
       color: #393B42;
-      padding: 0.5em;
+      padding: 10px;
       list-style-type: none;
       text-align: center; }
     #left-menu ul#menu-list > li > a:hover {
@@ -77,10 +219,16 @@ html, body {
       border-left: 5px #A0BD7D solid;
       padding-left: 15px; }
     #left-menu ul#menu-list li > ul {
-      padding-left: 30%; }
+      padding: 5px 0 5px 0;
+      font-size: 0.8rem;
+      background: #383A41; }
+    #left-menu ul#menu-list li > ul > li {
+      padding: 3px 0 3px 0; }
     #left-menu ul#menu-list li > ul > li:hover {
       background: #586B4C; }
     #left-menu ul#menu-list > li > ul > li > a {
-      color: #D4D6D2; }
+      font-family: "Qotho W01 Thin Condensed" !important;
+      color: #D4D6D2;
+      padding-left: 20%; }
     #left-menu ul#menu-list > li > ul > li > a:before {
       content: "\2022\a0\a0"; }
