@@ -4,15 +4,17 @@
     <title>Demos</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Jquery в основном используется для работы с меню -->
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="../node_modules/masonry-layout/dist/masonry.pkgd.js"></script>
+    <!-- библиотека для отображения содержимого на странице плитками 
+    с горизонтальным заполнением (Masonry - columnWidth). Не пригодилась -->
+    <!-- <script src="../node_modules/masonry-layout/dist/masonry.pkgd.js"></script> -->
   </head>
   <body>
-
+    <!-- обёртка для всей страницы  -->
     <div class="page-wrapper">
+        <!-- хедер начало -->
         <div class="site-header">
           <div id="user">
              <a href="#" >Lorieric Kukuzapolurukos&nbsp;&#9662;&nbsp;<span id="user-avatar"><i class="icon-no-photo"></i></span></a>
@@ -28,10 +30,10 @@
              <!-- <img src="images/unigine-color-mini.png"> --></a>
           </div>
         </div>
+
         <!-- начало main-page -->
         <div class="main-page row">
-
-
+            <!-- начало left-menu -->
             <div id="left-menu" class="item">
                 <ul id="menu-list">
                     <li><a href="">My projects</a>
@@ -76,8 +78,9 @@
                     </li>
                 </ul>
             </div><!-- конец left-menu -->
-
-           <div id="content" class="item">
+               
+            <!-- начало content основное содержимое    -->
+            <div id="content" class="item">
                    <div id="page-name">Demos</div>
 
                     <!-- начало плиточного содержимого -->
@@ -86,110 +89,141 @@
                            <div class="item-preview">
                                 <img src="images/1.png">
                            </div>
-                            <div class="details">
+                            <div class="item-details">
                                 <div class="item-name"> Valley Benchmark </div> 
                                 <div class="item-description"> Game SDK 2.01.15 </div>
                             </div>
-                            <div class="manager-panel">
-                                <a class="run-button" href="#openModal"><i class="icon-play-circled"></i> Run</a>
+                            <div class="item-manager-panel">
+                                <a class="item-run-button" href="#modal-open"><i class="icon-play-circled"></i> Run</a>
                             </div>
                         </div>
+
 
                         <div class="item">
                            <div class="item-preview">
                                 <img src="images/2.png">
                            </div>
-                            <div class="details">
+                            <div class="item-details">
                                 <div class="item-name"> Heaven Benchmark </div> 
                                 <div class="item-description"> Game SDK 2.01.15 </div>
                             </div>
-                            <div class="manager-panel">
-                                <a class="run-button" href="#"><i class="icon-play-circled"></i> Run</a>
+                            <div class="item-manager-panel">
+                                <a class="item-run-button" href="#modal-open"><i class="icon-play-circled"></i> Run</a>
                             </div>
                         </div>
+
 
                         <div class="item">
                            <div class="item-preview">
                                 <img src="images/3.png">
                            </div>
-                            <div class="details">
+                            <div class="item-details">
                                 <div class="item-name"> Tropics Benchmark </div> 
                                 <div class="item-description"> Game SDK 2.01.15 </div>
                             </div>
-                            <div class="manager-panel">
-                                <a class="run-button" href="#"><i class="icon-play-circled"></i> Run</a>
+                            <div class="item-manager-panel">
+                                <a class="item-run-button" href="#modal-open"><i class="icon-play-circled"></i> Run</a>
                             </div>
                         </div>
+
+
                         <div class="item">
                            <div class="item-preview">
                                 <img src="images/4.png">
                            </div>
-                            <div class="details">
+                            <div class="item-details">
                                 <div class="item-name"> Sanctuary Benchmark </div> 
                                 <div class="item-description"> Game SDK 2.01.15 </div>
                             </div>
-                            <div class="manager-panel">
-                                <a class="run-button" href="#"><i class="icon-play-circled"></i> Run</a>
+                            <div class="item-manager-panel">
+                                <a class="item-run-button" href="#modal-open"><i class="icon-play-circled"></i> Run</a>
                             </div>
                         </div>
-                    </div>
-                    
-           </div><!-- конец content -->
+
+                        
+                        <div class="item">
+                           <div class="item-preview">
+                                <img src="images/test-img-horizont.png">
+                           </div>
+                            <div class="item-details">
+                                <div class="item-name"> Test namenamenamenamenamenamenamenamenamenamenamenamenamenamenamenamenamenamename</div> 
+                                <div class="item-description"> Test description description description description description description</div>
+                            </div>
+                            <div class="item-manager-panel">
+                                <a class="item-run-button" href="#modal-open"><i class="icon-play-circled"></i> Run</a>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                           <div class="item-preview">
+                                <img src="images/test-img-vertical.png">
+                           </div>
+                            <div class="item-details">
+                                <div class="item-name"> Test Image vertical 3000px </div> 
+                                <div class="item-description">Test Image vertical Test Image vertical Test Image vertical Test Image vertical </div>
+                            </div>
+                            <div class="item-manager-panel">
+                                <a class="item-run-button" href="#modal-open"><i class="icon-play-circled"></i> Run</a>
+                            </div>
+                        </div>
 
 
+                    </div><!-- плиточного содержимого -->                
+            </div><!-- конец content -->
         </div><!-- конец main-page -->
     </div><!-- конец page-wrapper-->
 
-
     <!-- модальное окно -->
-    <div id="openModal" class="modalDialog">
+    <div id="modal-open" class="modal-window">
         <div>
-
-
             <div id="modal-header">
                 <div>Customize Run Options</div>
             </div>
 
             <div id="modal-message">
-                Application:
-                <select name="application">
-                    <option selected value="Default">Default</option>
-                    <option value="Benchmark Valley SDK">Benchmark Valley SD</option>
-                    <option value="Nvidia Physx">Nvidia Physx</option>
-                    <option value="Xpress video stresstest">Xpress video stresstest</option>
-                </select>
-                <br>
+                <div class="modal-message-item">
+                    Application: <select name="application">
+                        <option selected value="Default">Default</option>
+                        <option value="Benchmark Valley SDK">Benchmark Valley SD</option>
+                        <option value="Nvidia Physx">Nvidia Physx</option>
+                        <option value="Xpress video stresstest">Xpress video stresstest</option>
+                    </select>
+                    <br>
+                </div>
 
-                <input type="checkbox" name="debug" value="debug">Debug <br>
+                <input type="checkbox" name="debug" value="debug"> Debug
+            
+                <div class="modal-message-item">
+                    Architecture: <select name="architecture">
+                        <option selected value="64 bit">64 bit</option>
+                        <option value="32 bit">32 bit</option>
+                        <option value="ARM">ARM</option>
+                        <option value="I don't know">I don't know</option>
+                    </select>
+                </div>
+                <input type="checkbox" name="remember" value="remember" checked> Remember
+               
 
-                Architecture:
-                <select name="architecture">
-                    <option selected value="64 bit">64 bit</option>
-                    <option value="32 bit">32 bit</option>
-                    <option value="ARM">ARM</option>
-                    <option value="I don't know">I don't know</option>
-                </select>
-                <br>
-                <input type="checkbox" name="remember" value="remember" checked>Remember <br>
             </div>
             
 
             <div id="modal-buttons">
-                <div class="buttons"><a href="#close" title="Закрыть" class="close">Cancel</a></div> <br> <br> <br>
-                <div class="buttons"><a href="#run" title="Закрыть" class="run">Run</a><div>
+                <a href="#cancel" title="Cancel" class="buttons cancel">Cancel</a>
+
+                <a href="#run " title="Run" class="buttons run">Run</a>
             </div>
+
         </div>
     </div>
 
     <script type="text/javascript">
-
-        //инииализируем библиотеку masonry для плиточного размещения блоков
-        $('.masonry').masonry({
-          // options...
-          itemSelector: '.item',
-          columnWidth: 25
-        });
-
+        //библиотека отключена вёрстка сама всё делает
+        // //инииализируем библиотеку masonry для плиточного размещения блоков
+        // $('.masonry').masonry({
+        //   // options...
+        //   itemSelector: '.item',
+        //   columnWidth: 25
+        // });
 
         //функция инициализирует и скрывает меню
         //при клике на пунктах меню открывает одно и закрывает уже открытое
@@ -216,7 +250,6 @@
                 }
               }
             );
-
            $('#menu-list>li>ul>li').click(function(e){
                 e.preventDefault();
                 $('#menu-list>li>ul>li').each(function(index) {
@@ -226,9 +259,6 @@
             });
           }
         $(document).ready(function() {initMenu();});
-
     </script>
-
-
   </body>
 </html>

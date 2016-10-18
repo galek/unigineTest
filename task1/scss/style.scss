@@ -1,3 +1,7 @@
+//css-файл содержит все стили страницы
+//при желании можно разбить эти стили на компоненты с минимальными усилиями
+
+// --------определение шрифтов и иконок можно вынести в отдельный файл
 @font-face {font-family: "Qotho W01 Thin Condensed";
   src: url("../fonts/Qotho-thin/Qotho.eot"); /* IE9*/
   src: url("../fonts/Qotho-thin/Qotho.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
@@ -18,42 +22,27 @@
 
 
 @font-face {
-      font-family: 'unigine';
-      src: url('../fonts/icons/unigine.eot');
-      src: url('../fonts/icons/unigine.eot#iefix') format('embedded-opentype'),
-           url('../fonts/icons/unigine.woff') format('woff'),
-           url('../fonts/icons/unigine.ttf') format('truetype'),
-           url('../fonts/icons/unigine.svg#unigine') format('svg');
-      font-weight: normal;
-      font-style: normal;
+  font-family: 'unigine';
+  src: url('../fonts/icons/unigine.eot');
+  src: url('../fonts/icons/unigine.eot#iefix') format('embedded-opentype'),
+       url('../fonts/icons/unigine.woff') format('woff'),
+       url('../fonts/icons/unigine.ttf') format('truetype'),
+       url('../fonts/icons/unigine.svg#unigine') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
 
-
+//ищем все элементы начинающиеся или содержащие класс icon-* 
  [class^="icon-"]:before, [class*=" icon-"]:before {
   font-family: "unigine";
   font-style: normal;
   font-weight: normal;
   speak: none;
  
-  // display: inline-block;
-  // text-decoration: inherit;
-  // width: 1em;
-  // margin-right: .2em;
-  // text-align: center;
-  // /* opacity: .8; */
- 
   /* For safety - reset parent styles, that can break glyph codes*/
   font-variant: normal;
   text-transform: none;
- 
-  /* fix buttons height, for twitter bootstrap */
-  // line-height: 1em;
- 
-  /* Animation center compensation - margins should be symmetric */
-  /* remove if not needed */
-  // margin-left: .2em;
-
 
   -webkit-text-stroke-width: 0;
  
@@ -68,14 +57,14 @@
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
 
-
+ //определение иконок на класс из шрифта
 .icon-no-photo:before { content: '\e801'; } 
 .icon-unigine:before { content: '\e802'; } 
 .icon-settings:before { content: '\e803'; } 
 .icon-play-circled:before { content: '\f144'; } 
 
 
-
+//----------------общие настройки и resets для всей страницы
 html, body {
     top: 0;
     left: 0;
@@ -95,29 +84,30 @@ html, body {
     // -moz-osx-font-smoothing: grayscale;
 }
 
+// --------------общий враппер для всей страницы с минимальной шириной 1024px
 .page-wrapper {
-    min-width: 1024px; /* Минимальная Ширина слоя */
-    margin: 0 auto; /* Выравнивнить весь блок по центру */
-    background: #f0f0f0; /* Цвет фона */
-
-    // тестовая рамка
-    // border: 1px solid red;
+    // Минимальная Ширина слоя
+    min-width: 1024px;  
+    // Выравнивнить весь блок по центру
+    margin: 0 auto; 
+    background: #f0f0f0; 
 }
 
+
+//общий wrapper для меню и контента
 .main-page {
     overflow: hidden; /* Отменяем действие float */
     width: 100%;
-    // тестовая рамка
-    // border: 1px solid green;
 }
 
-.site-header {
-    background: #27282D; /* Цвет фона */
-    font-size: 0.9rem; /* Размер шрифта */
-    padding-top: 10px;
-    // тестовая рамка
-    // border: 1px solid orange;
 
+// -----------------header страницы
+.site-header {
+    background: #27282D; 
+    font-size: 0.9rem; 
+    padding-top: 10px;
+    
+    //общие стили для кнопок пользователи и settings
     #user, #settings {
        background: #393B42;
        display: inline-block;
@@ -125,17 +115,23 @@ html, body {
        text-align: center;
       //для всех ссылок в хедере 
        a {
-        display: block;
-        text-decoration: none;  
-        color: #D1D1D1;
+          display: block;
+          text-decoration: none;  
+          color: #D1D1D1;
+       }
+       //при наведении на блок  настроек и пользователя
+       &:hover {
+          background: #586B4C; 
        }
     }
-  
+    
+    //отдельные стили для блока пользователя
     #user {
       min-width: 220px;
       width: 20%;
       vertical-align: center;
-
+      
+      //закруглённый аватар пользователя
       #user-avatar {
         display: inline-block;
         text-align: center;
@@ -145,42 +141,36 @@ html, body {
         border-radius: 20px;
         margin-bottom: 2px;
       }
-
+      //иконка аватара
       .icon-no-photo {
         font-size: 30px;
-        height: 90%;
         color: #393B42;
       }
     }
 
+    //отдельные стили для блока настроек
     #settings {
       width: 15%;
       margin-left:5px;
-      
+      //иконка настроек
       .icon-settings {
         font-size: 30px;
       }
-
     }
 
+    //логотип
     #logo {
       display: inline;
-
       width: 15%;
       float: right;
       text-align: right;
       padding: 10px 10% 0 0;
-
+      //отключаем декорацию ссылок т.к. логотип векторный шрифт-иконка
       a {
         text-decoration: none;  
         color: #D1D1D1; 
       }
-
-      // img {
-      //   height: 10%;
-      //   width:80%;
-      // }
-
+      //девиз компании под лого
       #credo {
         font-size: 0.58rem;
         color: #72A237;
@@ -191,32 +181,32 @@ html, body {
     }
 }
 
-
+//----------------содержимое страницы
 #content {
   width: 83%;
   margin-left: 17%; /* Отступ слева */
   background: #ECECEC; /* Цвет фона содержимого*/
   padding: 0 3%;
   min-height: 800px;
-  // тестовая рамка
-  // border: 1px solid yellow;
-
-     /* начало плиточного содержимого*/
-
-    /* стили картинок, видое и видео-фреймов внутри плиток и всего контента*/
-    img, iframe {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-
+    //название страницы в контенте
     #page-name {
       font-family:"Qotho W01 Medium Condensed", "Arial", "sans-serif";
       font-size: 2rem;
       padding: 1% 1% 1% 0;
     }
+    
 
+    /* стили картинок, видое и видео-фреймов внутри плиток и всего контента*/
+    img, iframe {
+      height: auto;
+      display: block;
+      // min-height: 340px;
+      max-width: 218px;
+      max-height: 218px;
+    }
+
+
+    /* начало плиточного содержимого*/
     /* элемент-плитки с содержанием */
     .item {
         width: 250px;
@@ -225,7 +215,8 @@ html, body {
         background: #fff;
         margin: 0 0.5em 1.5em 0;
         box-shadow: 2px 2px 4px 2px #ccc; /* Внешняя тень плиток */
-        text-align: center;    
+        text-align: center;
+
        
         /* стили ссылок внутри плитки */
        a {
@@ -239,32 +230,42 @@ html, body {
           color: #E88F00;    
           border-bottom: 1px dotted #9F1D35;
         }
-
+        
+        //содержимое с предпросмотром
         .item-preview {
           padding: 1em 1em 0.5em 1em;
+          min-height: 218px;
         }
-
-        .details {
+        //общий блок для вывода информации 
+        .item-details {
           padding-bottom: 5px;
         }
-
+        //название итема
         .item-name {
           font-weight: bold;
           padding: 5px;
         }
-
+        //описание итема
         .item-description {
           font-size: 0.5rem;
           padding: 5px;
           color: #787878;
         }
-
-
-        .manager-panel {
+        
+        //обработка длинных строк в названии и описании
+        .item-name, .item-description {
+          white-space: nowrap; /* Отменяем перенос текста */
+          overflow: hidden; /* Обрезаем содержимое */
+          text-overflow: ellipsis; /* Многоточие */
+        }
+        
+        //панель управления с кнопкой запуска
+        .item-manager-panel {
             border: 1px solid #fff;
             padding: 5px 0 5px 0;
             background: #D5D5D5;
-
+            
+            //размер иконки кнопки запуска
             .icon-play-circled {
               font-size: 25px;
             }
@@ -280,6 +281,8 @@ html, body {
   padding-bottom: 10000px;
 }
 
+
+// ------------- левое меню
 #left-menu {
   width: 17%; 
   float: left;
@@ -369,10 +372,9 @@ html, body {
   }
 }
 
-
-
-// модальное окно
-  .modalDialog {
+// -------------  модальное окно
+  //затемняем задний фон
+  .modal-window {
     position: fixed;
     font-family: Arial, Helvetica, sans-serif;
     top: 0;
@@ -393,7 +395,7 @@ html, body {
       pointer-events: auto;
     }
 
-
+    //само модальное окно
     &>div {
       width: 600px;
       height: 400px;
@@ -403,37 +405,73 @@ html, body {
       background: #ECECEC;
 
     }
+    
+    //элемент модального окна - заголовок (название)
+    #modal-header {
+      font-size: 1.3rem;
+      color: #333333;
+      font-weight: bold;
+      border-bottom: 1px solid #CFCFD0;
+      padding: 10px 0 10px 70px;
+    }
+    //содержимое модального окна
+    #modal-message {
+      padding: 40px 140px 80px 10px;
+      
+      //item для выравнивания содержимого 
+      .modal-message-item {
+        text-align: right;
+      }
+      //отступы между элементами
+      select, input {
+        margin: 12px 0 12px 0;
+      }
+      //ширина селектов
+      select {
+        width: 300px;
+        height: 25px;
+      }
+      //выравнивание инпутов
+      input {
+        text-align: left;
+        margin-left: 32.5%;
+      }
+    }
+    //раздел кнопок окна
+    #modal-buttons {
+      width: 100%;
+      margin-left: 8%;
+      //класс кнопки для общего стиля
+      .buttons {
+        width: 35%;
+        text-align: center;
+        color: black;
+        text-decoration: none;
+        display: block;
+        padding: 10px 20px 10px 20px;
+
+        //действие при наведении на кнопку
+        &:hover { 
+          background: #586B4C;
+        }
+      }
+      //стиль кнопки cancel
+      .cancel {
+        float: left;
+        display: inherit;
+        background: #D5D5D5; 
+      }
+      //стиль кнопки run
+      .run {
+        float: left;
+        display: inherit;
+        background: #7CB24F;
+        color: #FFFFFF;
+      }
+
+    }
   }
 
-  .buttons {
-    width: 40%;
-    padding: 10px 0 10px 0;
-
-
-    line-height: 25px;
-    position: absolute;
-    text-align: center;
-
-    text-decoration: none;
-
-    display: inline-block;
-
-    .close {
-      float: left;
-      background: #D5D5D5; 
-    }
-
-    .run {
-      float: right;
-      background: #7CB24F;
-      color: #FFFFFF;
-    }
-
-    &:hover { 
-      background: #00d9ff;
-      color: #E88F00;    
-      border-bottom: 1px dotted #9F1D35; }
-  }
 
 
 

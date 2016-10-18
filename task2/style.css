@@ -5,100 +5,112 @@ html, body {
   right: 0;
   bottom: 0;
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
   box-sizing: border-box; }
 
-/*min 424x182*/
-/*max 740*/
 .gamepad {
   position: absolute;
   left: 0;
   width: 100%;
   min-width: 180px;
-  max-width: 700px;
-  min-height: 185px;
+  max-width: 550px;
+  min-height: 150px;
+  margin-left: 0;
   top: 50%;
   height: 50%;
   border: 10px solid black;
   box-sizing: border-box; }
+  .gamepad .left {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background: rgba(0, 255, 0, 0.1);
+    /*border: 1px solid red;*/ }
+    .gamepad .left #joystick-left {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      /*border: 1px solid green;*/ }
+      .gamepad .left #joystick-left .front {
+        opacity: 0.8 !important;
+        /*Тень*/
+        -webkit-box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.5);
+        box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.5);
+        /*Градиент*/
+        background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.2)) !important;
+        background-image: -moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.2)) !important;
+        background-image: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.2)) !important;
+        background-image: -ms-linear-gradient(top, transparent, rgba(0, 0, 0, 0.2)) !important;
+        background-image: linear-gradient(top, transparent, rgba(0, 0, 0, 0.2)) !important; }
+      .gamepad .left #joystick-left .back {
+        /*        opacity: 1 !important; 
+          background: none !important;
+          border: 1px dashed orange;*/ }
+  .gamepad .right {
+    position: absolute;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 0, 255, 0.1);
+    /*border: 1px solid blue;*/ }
+    .gamepad .right #button1-right {
+      position: absolute;
+      left: 0;
+      height: 100%;
+      width: 50%;
+      /*border: 1px solid yellow;*/ }
+    .gamepad .right #button2-right {
+      position: absolute;
+      left: 50%;
+      height: 100%;
+      width: 50%;
+      /*border: 1px solid black;*/ }
+    .gamepad .right #button1-right .front, .gamepad .right #button2-right .front {
+      display: none !important; }
+    .gamepad .right #button1-right .back, .gamepad .right #button2-right .back {
+      opacity: 1 !important;
+      /*Тень*/
+      -webkit-box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.5);
+      box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.5);
+      /*Градиент*/
+      background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.2)) !important;
+      background-image: -moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.2)) !important;
+      background-image: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.2)) !important;
+      background-image: -ms-linear-gradient(top, transparent, rgba(0, 0, 0, 0.2)) !important;
+      background-image: linear-gradient(top, transparent, rgba(0, 0, 0, 0.2)) !important; }
+    .gamepad .right #button1-right .back.active, .gamepad .right #button2-right .back.active {
+      /*Тень*/
+      -webkit-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
+      box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
+      /*Градиент*/
+      background-image: -webkit-linear-gradient(bottom, transparent, rgba(0, 0, 0, 0.4)) !important;
+      background-image: -moz-linear-gradient(bottom, transparent, rgba(0, 0, 0, 0.4)) !important;
+      background-image: -o-linear-gradient(bottom, transparent, rgba(0, 0, 0, 0.4)) !important;
+      background-image: -ms-linear-gradient(bottom, transparent, rgba(0, 0, 0, 0.4)) !important;
+      background-image: linear-gradient(bottom, transparent, rgba(0, 0, 0, 0.4)) !important; }
 
-.left {
-  position: absolute;
-  width: 50%;
-  height: 100%;
-  background: rgba(0, 255, 0, 0.1);
-  /*border: 1px solid red;*/ }
+@media all and (min-width: 400px) {
+  .gamepad {
+    margin-left: 0;
+    max-width: 500px; } }
 
-#joystick-left {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  /*border: 1px solid green;*/ }
+@media all and (min-width: 600px) {
+  .gamepad {
+    max-width: 700px; } }
 
-.right {
-  position: absolute;
-  left: 50%;
-  width: 50%;
-  height: 100%;
-  background: rgba(255, 0, 255, 0.1);
-  /*border: 1px solid blue;*/ }
+@media all and (min-width: 800px) {
+  .gamepad {
+    max-width: 900px; } }
 
-#button1-right {
-  position: absolute;
-  left: 0;
-  height: 100%;
-  width: 50%;
-  /*border: 1px solid yellow;*/ }
+@media all and (min-width: 900px) {
+  .gamepad {
+    margin-left: 2%;
+    max-width: 1000px; } }
 
-#button2-right {
-  position: absolute;
-  left: 50%;
-  height: 100%;
-  width: 50%;
-  /*border: 1px solid black;*/ }
-
-#joystick-left .front {
-  opacity: 0.8 !important;
-  /*Тень*/
-  -webkit-box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.5);
-  box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.5);
-  /*Градиент*/
-  background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.2)) !important;
-  background-image: -moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.2)) !important;
-  background-image: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.2)) !important;
-  background-image: -ms-linear-gradient(top, transparent, rgba(0, 0, 0, 0.2)) !important;
-  background-image: linear-gradient(top, transparent, rgba(0, 0, 0, 0.2)) !important; }
-
-#joystick-left .back {
-  /*        opacity: 1 !important; 
-    background: none !important;
-    border: 1px dashed orange;*/ }
-
-#button1-right .front, #button2-right .front {
-  display: none !important; }
-
-#button1-right .back, #button2-right .back {
-  opacity: 1 !important;
-  /*Тень*/
-  -webkit-box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.5);
-  box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.5);
-  /*Градиент*/
-  background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.2)) !important;
-  background-image: -moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.2)) !important;
-  background-image: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.2)) !important;
-  background-image: -ms-linear-gradient(top, transparent, rgba(0, 0, 0, 0.2)) !important;
-  background-image: linear-gradient(top, transparent, rgba(0, 0, 0, 0.2)) !important; }
-
-#button1-right .back.active, #button2-right .back.active {
-  /*Тень*/
-  -webkit-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
-  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
-  /*Градиент*/
-  background-image: -webkit-linear-gradient(bottom, transparent, rgba(0, 0, 0, 0.4)) !important;
-  background-image: -moz-linear-gradient(bottom, transparent, rgba(0, 0, 0, 0.4)) !important;
-  background-image: -o-linear-gradient(bottom, transparent, rgba(0, 0, 0, 0.4)) !important;
-  background-image: -ms-linear-gradient(bottom, transparent, rgba(0, 0, 0, 0.4)) !important;
-  background-image: linear-gradient(bottom, transparent, rgba(0, 0, 0, 0.4)) !important; }
+@media all and (min-width: 1200px) {
+  .gamepad {
+    margin-left: 10%;
+    max-width: 1100px; } }

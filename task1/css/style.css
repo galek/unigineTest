@@ -28,9 +28,6 @@
   /* For safety - reset parent styles, that can break glyph codes*/
   font-variant: normal;
   text-transform: none;
-  /* fix buttons height, for twitter bootstrap */
-  /* Animation center compensation - margins should be symmetric */
-  /* remove if not needed */
   -webkit-text-stroke-width: 0;
   /* you can be more comfortable with increased icons size */
   /* Font smoothing. That was taken from TWBS */
@@ -68,11 +65,8 @@ html, body {
 
 .page-wrapper {
   min-width: 1024px;
-  /* Минимальная Ширина слоя */
   margin: 0 auto;
-  /* Выравнивнить весь блок по центру */
-  background: #f0f0f0;
-  /* Цвет фона */ }
+  background: #f0f0f0; }
 
 .main-page {
   overflow: hidden;
@@ -81,9 +75,7 @@ html, body {
 
 .site-header {
   background: #27282D;
-  /* Цвет фона */
   font-size: 0.9rem;
-  /* Размер шрифта */
   padding-top: 10px; }
   .site-header #user, .site-header #settings {
     background: #393B42;
@@ -94,6 +86,8 @@ html, body {
       display: block;
       text-decoration: none;
       color: #D1D1D1; }
+    .site-header #user:hover, .site-header #settings:hover {
+      background: #586B4C; }
   .site-header #user {
     min-width: 220px;
     width: 20%;
@@ -108,7 +102,6 @@ html, body {
       margin-bottom: 2px; }
     .site-header #user .icon-no-photo {
       font-size: 30px;
-      height: 90%;
       color: #393B42; }
   .site-header #settings {
     width: 15%;
@@ -138,17 +131,18 @@ html, body {
   /* Цвет фона содержимого*/
   padding: 0 3%;
   min-height: 800px;
-  /* начало плиточного содержимого*/
   /* стили картинок, видое и видео-фреймов внутри плиток и всего контента*/
+  /* начало плиточного содержимого*/
   /* элемент-плитки с содержанием */ }
-  #content img, #content iframe {
-    max-width: 100%;
-    height: auto;
-    display: block; }
   #content #page-name {
     font-family: "Qotho W01 Medium Condensed", "Arial", "sans-serif";
     font-size: 2rem;
     padding: 1% 1% 1% 0; }
+  #content img, #content iframe {
+    height: auto;
+    display: block;
+    max-width: 218px;
+    max-height: 218px; }
   #content .item {
     width: 250px;
     font-family: "Arial", "sans-serif";
@@ -168,8 +162,9 @@ html, body {
       color: #E88F00;
       border-bottom: 1px dotted #9F1D35; }
     #content .item .item-preview {
-      padding: 1em 1em 0.5em 1em; }
-    #content .item .details {
+      padding: 1em 1em 0.5em 1em;
+      min-height: 218px; }
+    #content .item .item-details {
       padding-bottom: 5px; }
     #content .item .item-name {
       font-weight: bold;
@@ -178,11 +173,18 @@ html, body {
       font-size: 0.5rem;
       padding: 5px;
       color: #787878; }
-    #content .item .manager-panel {
+    #content .item .item-name, #content .item .item-description {
+      white-space: nowrap;
+      /* Отменяем перенос текста */
+      overflow: hidden;
+      /* Обрезаем содержимое */
+      text-overflow: ellipsis;
+      /* Многоточие */ }
+    #content .item .item-manager-panel {
       border: 1px solid #fff;
       padding: 5px 0 5px 0;
       background: #D5D5D5; }
-      #content .item .manager-panel .icon-play-circled {
+      #content .item .item-manager-panel .icon-play-circled {
         font-size: 25px; }
 
 #left-menu, #content {
@@ -233,7 +235,7 @@ html, body {
       #left-menu ul#menu-list > li > ul > li > a:before {
         content: "\2022\a0\a0"; }
 
-.modalDialog {
+.modal-window {
   position: fixed;
   font-family: Arial, Helvetica, sans-serif;
   top: 0;
@@ -247,33 +249,52 @@ html, body {
   transition: opacity 400ms ease-in;
   display: none;
   pointer-events: none; }
-  .modalDialog:target {
+  .modal-window:target {
     display: block;
     pointer-events: auto; }
-  .modalDialog > div {
+  .modal-window > div {
     width: 600px;
     height: 400px;
     position: relative;
     margin: 10% auto;
     padding: 1%;
     background: #ECECEC; }
-
-.buttons {
-  width: 40%;
-  padding: 10px 0 10px 0;
-  line-height: 25px;
-  position: absolute;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block; }
-  .buttons .close {
-    float: left;
-    background: #D5D5D5; }
-  .buttons .run {
-    float: right;
-    background: #7CB24F;
-    color: #FFFFFF; }
-  .buttons:hover {
-    background: #00d9ff;
-    color: #E88F00;
-    border-bottom: 1px dotted #9F1D35; }
+  .modal-window #modal-header {
+    font-size: 1.3rem;
+    color: #333333;
+    font-weight: bold;
+    border-bottom: 1px solid #CFCFD0;
+    padding: 10px 0 10px 70px; }
+  .modal-window #modal-message {
+    padding: 40px 140px 80px 10px; }
+    .modal-window #modal-message .modal-message-item {
+      text-align: right; }
+    .modal-window #modal-message select, .modal-window #modal-message input {
+      margin: 12px 0 12px 0; }
+    .modal-window #modal-message select {
+      width: 300px;
+      height: 25px; }
+    .modal-window #modal-message input {
+      text-align: left;
+      margin-left: 32.5%; }
+  .modal-window #modal-buttons {
+    width: 100%;
+    margin-left: 8%; }
+    .modal-window #modal-buttons .buttons {
+      width: 35%;
+      text-align: center;
+      color: black;
+      text-decoration: none;
+      display: block;
+      padding: 10px 20px 10px 20px; }
+      .modal-window #modal-buttons .buttons:hover {
+        background: #586B4C; }
+    .modal-window #modal-buttons .cancel {
+      float: left;
+      display: inherit;
+      background: #D5D5D5; }
+    .modal-window #modal-buttons .run {
+      float: left;
+      display: inherit;
+      background: #7CB24F;
+      color: #FFFFFF; }
