@@ -8,13 +8,14 @@
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/masonry-layout/dist/masonry.pkgd.js"></script>
   </head>
   <body>
 
     <div class="page-wrapper">
         <div class="site-header">
           <div id="user">
-             <a href="#" >Lorieric Kukuzppolurukos &nbsp; <small> &#9660;</small> <i class="icon-no-photo"></i> </a>
+             <a href="#" >Lorieric Kukuzapolurukos&nbsp;&#9662;&nbsp;<span id="user-avatar"><i class="icon-no-photo"></i></span></a>
           </div>   
 
           <div id="settings">
@@ -22,7 +23,9 @@
           </div>
 
           <div id="logo">
-             <a href="#"><img src="images/unigine-color-mini.png"></a>
+             <a href="#"><i class="icon-unigine"></i>
+            <div id="credo"> engine of virtual worlds </div>
+             <!-- <img src="images/unigine-color-mini.png"> --></a>
           </div>
         </div>
         <!-- начало main-page -->
@@ -75,52 +78,60 @@
             </div><!-- конец left-menu -->
 
            <div id="content" class="item">
-                   <span class="page-name">Demos</span>
+                   <div id="page-name">Demos</div>
 
-                    <!-- Контейнер с адаптиными блоками -->
+                    <!-- начало плиточного содержимого -->
                     <div class="masonry">
-                        <!-- Адаптивные блоки с содержанием -->
-
-                        
-                       <div class="item">
-                           <img src="images/1.png">
-                               <br>Онлайн - В состояянии постоянного подключения... <a href="#">Подробнее »</a>
+                        <div class="item">
+                           <div class="item-preview">
+                                <img src="images/1.png">
+                           </div>
+                            <div class="details">
+                                <div class="item-name"> Valley Benchmark </div> 
+                                <div class="item-description"> Game SDK 2.01.15 </div>
+                            </div>
+                            <div class="manager-panel">
+                                <a class="run-button" href="#openModal"><i class="icon-play-circled"></i> Run</a>
+                            </div>
                         </div>
-                        
-                       <div class="item">
-                           <img src="images/2.png">
-                               <br>
-                                   <b>Planer</b> — элегантная, профессиональная тема оформления WordPress, отлично подойдёт для тех, кто планирует создать проект с отображением большего объёма различного контента. <a href="#">Подробнее »</a>
-                       </div>
 
-                        
-                        
-                       <div class="item">
-                           <img src="images/3.png">
-                               <br>Онлайн - В состояянии постоянного подключения... <a href="#">Подробнее »</a>
+                        <div class="item">
+                           <div class="item-preview">
+                                <img src="images/2.png">
+                           </div>
+                            <div class="details">
+                                <div class="item-name"> Heaven Benchmark </div> 
+                                <div class="item-description"> Game SDK 2.01.15 </div>
+                            </div>
+                            <div class="manager-panel">
+                                <a class="run-button" href="#"><i class="icon-play-circled"></i> Run</a>
+                            </div>
                         </div>
-                        
-                       <div class="item">
-                           <img src="images/4.png">
-                               <br>
-                                   <b>Planer</b> — элегантная, профессиональная тема оформления WordPress, отлично подойдёт для тех, кто планирует создать проект с отображением большего объёма различного контента. <a href="#">Подробнее »</a>
-                       </div>
 
-                                               
-                        
-                       <div class="item">
-                           <img src="images/3.png">
-                               <br>Онлайн - В состояянии постоянного подключения... <a href="#">Подробнее »</a>
+                        <div class="item">
+                           <div class="item-preview">
+                                <img src="images/3.png">
+                           </div>
+                            <div class="details">
+                                <div class="item-name"> Tropics Benchmark </div> 
+                                <div class="item-description"> Game SDK 2.01.15 </div>
+                            </div>
+                            <div class="manager-panel">
+                                <a class="run-button" href="#"><i class="icon-play-circled"></i> Run</a>
+                            </div>
                         </div>
-                        
-                       <div class="item">
-                           <img src="images/4.png">
-                               <br>
-                                   <b>Planer</b> — элегантная, профессиональная тема оформления WordPress, отлично подойдёт для тех, кто планирует создать проект с отображением большего объёма различного контента. <a href="#">Подробнее »</a>
-                       </div>
-
-
-                      
+                        <div class="item">
+                           <div class="item-preview">
+                                <img src="images/4.png">
+                           </div>
+                            <div class="details">
+                                <div class="item-name"> Sanctuary Benchmark </div> 
+                                <div class="item-description"> Game SDK 2.01.15 </div>
+                            </div>
+                            <div class="manager-panel">
+                                <a class="run-button" href="#"><i class="icon-play-circled"></i> Run</a>
+                            </div>
+                        </div>
                     </div>
                     
            </div><!-- конец content -->
@@ -128,31 +139,95 @@
 
         </div><!-- конец main-page -->
     </div><!-- конец page-wrapper-->
-<script type="text/javascript">
-    // function initMenu() {
-    //   $('#menu-list ul').hide();
-    //   $('#menu-list li a').click(
-    //     function() {
-    //         $(this).next().slideToggle('normal');   
-    //       }
-    //     );
-    //   }
-    // $(document).ready(function() {initMenu();});
 
 
-    var mainNav = $('#left-menu > ul > li > a');
-    $('#left-menu > ul > li > ul').hide();
-
-    $('a').click(function(e){
-        e.preventDefault();
-    });
-
-    mainNav.click(function(){
-        $(this).siblings('ul').slideToggle(150,'swing');
-    });
+    <!-- модальное окно -->
+    <div id="openModal" class="modalDialog">
+        <div>
 
 
-</script>
+            <div id="modal-header">
+                <div>Customize Run Options</div>
+            </div>
+
+            <div id="modal-message">
+                Application:
+                <select name="application">
+                    <option selected value="Default">Default</option>
+                    <option value="Benchmark Valley SDK">Benchmark Valley SD</option>
+                    <option value="Nvidia Physx">Nvidia Physx</option>
+                    <option value="Xpress video stresstest">Xpress video stresstest</option>
+                </select>
+                <br>
+
+                <input type="checkbox" name="debug" value="debug">Debug <br>
+
+                Architecture:
+                <select name="architecture">
+                    <option selected value="64 bit">64 bit</option>
+                    <option value="32 bit">32 bit</option>
+                    <option value="ARM">ARM</option>
+                    <option value="I don't know">I don't know</option>
+                </select>
+                <br>
+                <input type="checkbox" name="remember" value="remember" checked>Remember <br>
+            </div>
+            
+
+            <div id="modal-buttons">
+                <div class="buttons"><a href="#close" title="Закрыть" class="close">Cancel</a></div> <br> <br> <br>
+                <div class="buttons"><a href="#run" title="Закрыть" class="run">Run</a><div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        //инииализируем библиотеку masonry для плиточного размещения блоков
+        $('.masonry').masonry({
+          // options...
+          itemSelector: '.item',
+          columnWidth: 25
+        });
+
+
+        //функция инициализирует и скрывает меню
+        //при клике на пунктах меню открывает одно и закрывает уже открытое
+        //также к активному меню добавляет класс active
+        function initMenu() {
+          $('#menu-list ul').hide();
+          $('#menu-list ul').children('.current').parent().show();
+
+          $('#menu-list>li>a').click(
+            function() {
+                $('#menu-list>li>a').each(function(index) {
+                    $(this).removeClass('active');
+                });
+                $(this).toggleClass("active");
+
+              var checkElement = $(this).next();
+              if((checkElement.is('ul')) && (checkElement.is(':visible'))) {
+                return false;
+                }
+              if((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
+                $('#menu-list ul:visible').slideUp('normal');
+                checkElement.slideDown('normal');
+                return false;
+                }
+              }
+            );
+
+           $('#menu-list>li>ul>li').click(function(e){
+                e.preventDefault();
+                $('#menu-list>li>ul>li').each(function(index) {
+                    $(this).removeClass('active');
+                });
+                $(this).toggleClass("active");
+            });
+          }
+        $(document).ready(function() {initMenu();});
+
+    </script>
 
 
   </body>

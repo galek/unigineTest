@@ -36,26 +36,29 @@
   font-weight: normal;
   speak: none;
  
-  display: inline-block;
-  text-decoration: inherit;
-  width: 1em;
-  margin-right: .2em;
-  text-align: center;
-  /* opacity: .8; */
+  // display: inline-block;
+  // text-decoration: inherit;
+  // width: 1em;
+  // margin-right: .2em;
+  // text-align: center;
+  // /* opacity: .8; */
  
   /* For safety - reset parent styles, that can break glyph codes*/
   font-variant: normal;
   text-transform: none;
  
   /* fix buttons height, for twitter bootstrap */
-  line-height: 1em;
+  // line-height: 1em;
  
   /* Animation center compensation - margins should be symmetric */
   /* remove if not needed */
-  margin-left: .2em;
+  // margin-left: .2em;
+
+
+  -webkit-text-stroke-width: 0;
  
   /* you can be more comfortable with increased icons size */
-  /* font-size: 120%; */
+  // font-size: 120%;
  
   /* Font smoothing. That was taken from TWBS */
   -webkit-font-smoothing: antialiased;
@@ -65,14 +68,11 @@
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
 
-.icon-settings:before { content: '\e801'; } 
-.icon-no-photo:before { content: '\e802'; } 
+
+.icon-no-photo:before { content: '\e801'; } 
+.icon-unigine:before { content: '\e802'; } 
+.icon-settings:before { content: '\e803'; } 
 .icon-play-circled:before { content: '\f144'; } 
-
-
-.icon-no-photo {
-
-}
 
 
 
@@ -83,43 +83,45 @@ html, body {
     bottom: 0;
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Изменения алгоритма расчета ширины и высоты элемента.*/
+    -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
 
     font-family:"Qotho W01 Medium Condensed", "Arial", "sans-serif" !important;
     font-size: 16px;
     font-style:normal;
-    -webkit-font-smoothing: antialiased;
-    -webkit-text-stroke-width: 0.2px;
-    -moz-osx-font-smoothing: grayscale;
+    // -webkit-font-smoothing: antialiased;
+    // -webkit-text-stroke-width: 0.2px;
+    // -moz-osx-font-smoothing: grayscale;
 }
 
 .page-wrapper {
-    min-width: 1024px; /* Ширина слоя */
+    min-width: 1024px; /* Минимальная Ширина слоя */
     margin: 0 auto; /* Выравнивнить весь блок по центру */
     background: #f0f0f0; /* Цвет фона */
 
     // тестовая рамка
-    border: 1px solid red;
+    // border: 1px solid red;
 }
 
 .main-page {
     overflow: hidden; /* Отменяем действие float */
     width: 100%;
     // тестовая рамка
-    border: 1px solid green;
+    // border: 1px solid green;
 }
 
 .site-header {
     background: #27282D; /* Цвет фона */
-    font-size: 1rem; /* Размер шрифта */
+    font-size: 0.9rem; /* Размер шрифта */
     padding-top: 10px;
     // тестовая рамка
-    border: 1px solid orange;
+    // border: 1px solid orange;
 
     #user, #settings {
        background: #393B42;
        display: inline-block;
-       padding: 20px 0 20px 0;
+       padding: 5px 10px 5px 10px;
        text-align: center;
       //для всех ссылок в хедере 
        a {
@@ -128,29 +130,65 @@ html, body {
         color: #D1D1D1;
        }
     }
-
   
     #user {
-      width: 23%;
+      min-width: 220px;
+      width: 20%;
+      vertical-align: center;
+
+      #user-avatar {
+        display: inline-block;
+        text-align: center;
+        background: #FEFEFE; 
+        width: 35px; 
+        height: 35px; 
+        border-radius: 20px;
+        margin-bottom: 2px;
+      }
+
+      .icon-no-photo {
+        font-size: 30px;
+        height: 90%;
+        color: #393B42;
+      }
     }
 
     #settings {
       width: 15%;
-    }
-
-    #logo {
-      display: inline-block;
-      width: 15%;
-      float: right;
-      padding: 1% 10% 0 0;
-
-      img {
-        height: 10%;
-        width:80%;
+      margin-left:5px;
+      
+      .icon-settings {
+        font-size: 30px;
       }
 
     }
 
+    #logo {
+      display: inline;
+
+      width: 15%;
+      float: right;
+      text-align: right;
+      padding: 10px 10% 0 0;
+
+      a {
+        text-decoration: none;  
+        color: #D1D1D1; 
+      }
+
+      // img {
+      //   height: 10%;
+      //   width:80%;
+      // }
+
+      #credo {
+        font-size: 0.58rem;
+        color: #72A237;
+        padding:0;
+        margin:0;
+      }
+
+    }
 }
 
 
@@ -158,87 +196,80 @@ html, body {
   width: 83%;
   margin-left: 17%; /* Отступ слева */
   background: #ECECEC; /* Цвет фона содержимого*/
-  padding: 3%;
+  padding: 0 3%;
+  min-height: 800px;
   // тестовая рамка
-  border: 1px solid yellow;
+  // border: 1px solid yellow;
+
+     /* начало плиточного содержимого*/
+
+    /* стили картинок, видое и видео-фреймов внутри плиток и всего контента*/
+    img, iframe {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
 
 
+    #page-name {
+      font-family:"Qotho W01 Medium Condensed", "Arial", "sans-serif";
+      font-size: 2rem;
+      padding: 1% 1% 1% 0;
+    }
 
-          /* Начало кирпичной-плиточной кладки*/
-        .masonry {
-            margin: 1.5em 0;
-            padding: 0;
-            column-gap: 1.5em; /* Общее расстояние между колонками */
-            font-size: .85em;
-            -moz-column-gap: 1.5em; /* Расстояние между колонками для Firefox */
-            -webkit-column-gap: 1.5em; /* Расстояние между колонками  для Safari, Chrome и iOS */
-        }
-
-        /* Элементы в виде плиток с содержанием */
-        .item {
-            display: inline-block;
-            background: #fff;
-            padding: 1em;
-            margin: 0 0 1.5em;
-            width: 100%;
-            box-sizing: border-box; /* Изменения алгоритма расчета ширины и высоты элемента.*/
-            -moz-box-sizing: border-box; /* Для Firefox */ 
-            -webkit-box-sizing: border-box; /* Для Safari, Chrome, iOS иAndroid */ 
-            box-shadow: 2px 2px 4px 0 #ccc; /* Внешняя тень плиток */
-        }
-
-        /* Стили картинок, видое и фреймов внутри адаптивных плиток */
-        img, iframe {
-          max-width: 100%;
-          height: auto;
-          display: block;
-        }
-
-        /* Стили ссылок внутри плиток */
-        .item a {
+    /* элемент-плитки с содержанием */
+    .item {
+        width: 250px;
+        font-family:"Arial", "sans-serif";
+        display: inline-block;
+        background: #fff;
+        margin: 0 0.5em 1.5em 0;
+        box-shadow: 2px 2px 4px 2px #ccc; /* Внешняя тень плиток */
+        text-align: center;    
+       
+        /* стили ссылок внутри плитки */
+       a {
           text-decoration: none;
-          color: #359CC6;
+          color: #555555;
           margin: 0 10px;
         }
 
-        /* Стили ссылок при наведении */
-        .item a:hover {
+        /* стили ссылок внутри плитки при наведении */
+        a:hover {
           color: #E88F00;    
           border-bottom: 1px dotted #9F1D35;
         }
 
-        /* Медиа-запросы для различных размеров адаптивного макета */
-        @media only screen and (min-width: 400px) {
-            .masonry {
-                -moz-column-count: 2;
-                -webkit-column-count: 2;
-                column-count: 2;
-            }
+        .item-preview {
+          padding: 1em 1em 0.5em 1em;
         }
 
-        @media only screen and (min-width: 700px) {
-            .masonry {
-                -moz-column-count: 3;
-                -webkit-column-count: 3;
-                column-count: 3;
-            }
+        .details {
+          padding-bottom: 5px;
         }
 
-        @media only screen and (min-width: 900px) {
-            .masonry {
-                -moz-column-count: 4;
-                -webkit-column-count: 4;
-                column-count: 4;
-            }
+        .item-name {
+          font-weight: bold;
+          padding: 5px;
         }
 
-        @media only screen and (min-width: 1100px) {
-            .masonry {
-                -moz-column-count: 5;
-                -webkit-column-count: 5;
-                column-count: 5;
+        .item-description {
+          font-size: 0.5rem;
+          padding: 5px;
+          color: #787878;
+        }
+
+
+        .manager-panel {
+            border: 1px solid #fff;
+            padding: 5px 0 5px 0;
+            background: #D5D5D5;
+
+            .icon-play-circled {
+              font-size: 25px;
             }
         }
+    }
 }
 
 //быстрый CSS хак для создания колонок одинаковой высоты без JS
@@ -249,13 +280,12 @@ html, body {
   padding-bottom: 10000px;
 }
 
-
 #left-menu {
   width: 17%; 
   float: left;
   background: #28292E;
   // тестовая рамка
-  border: 1px solid blue;
+  // border: 1px solid blue;
 
 
   //всё меню
@@ -278,9 +308,9 @@ html, body {
     
     //каждый элемент главный список
     &>li {
-      font-size: 1.1rem; /* Размер шрифта */
+      font-size: 1.3rem; /* Размер шрифта */
       //линия между главными кнопками менюы
-      margin-top: 1px;
+      margin-bottom: 1px;
       background: #A0BD7D;
       
     }    
@@ -299,7 +329,8 @@ html, body {
     }
 
     //элемент ссылка главная - наведение
-    &>li>a:hover {
+    //элемент ссылка главная - активная
+    &>li>a:hover, &>li>a.active  {
       background: #ECECEC;
       border-left: 5px #A0BD7D solid;
       padding-left: 15px;
@@ -308,8 +339,9 @@ html, body {
     //каждый элемент UL второго уровеня списка
     li>ul {
       padding: 5px 0 5px 0;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       background: #383A41;
+      letter-spacing: 1px;
     }
     
     //каждый элемент LI второго уровеня списка
@@ -318,7 +350,8 @@ html, body {
     }    
 
     //каждый элемент LI второго уровеня списка при наведении
-    li>ul>li:hover {
+    //каждый элемент LI второго уровеня списка с активным классом
+    li>ul>li:hover, li>ul>li.active {
       background: #586B4C;
     }
 
@@ -326,17 +359,82 @@ html, body {
     &>li>ul>li>a {
       font-family:"Qotho W01 Thin Condensed" !important;
       color: #D4D6D2;
-      padding-left: 20%;    
+      padding-left: 20%;
+
+      //элемент ссылка второго уровня до содержимого переопределяем маркер
+      &:before  {
+        content: "\2022\a0\a0";
+      }  
     }
-    //элемент ссылка второго уровня до содержимого переопределяем маркер
-     &>li>ul>li>a:before {
-      content: "\2022\a0\a0";
-
-    }
-
-
   }
 }
+
+
+
+// модальное окно
+  .modalDialog {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    display: none;
+    pointer-events: none;
+  
+
+    &:target {
+      display: block;
+      pointer-events: auto;
+    }
+
+
+    &>div {
+      width: 600px;
+      height: 400px;
+      position: relative;
+      margin: 10% auto;
+      padding: 1%;
+      background: #ECECEC;
+
+    }
+  }
+
+  .buttons {
+    width: 40%;
+    padding: 10px 0 10px 0;
+
+
+    line-height: 25px;
+    position: absolute;
+    text-align: center;
+
+    text-decoration: none;
+
+    display: inline-block;
+
+    .close {
+      float: left;
+      background: #D5D5D5; 
+    }
+
+    .run {
+      float: right;
+      background: #7CB24F;
+      color: #FFFFFF;
+    }
+
+    &:hover { 
+      background: #00d9ff;
+      color: #E88F00;    
+      border-bottom: 1px dotted #9F1D35; }
+  }
+
 
 
 
